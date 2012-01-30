@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, FoodieActivity!</string>
-    <string name="app_name">Foodie</string>
+
+    <string name="hello">Hello World, Using_tabsActivity!</string>
+    <string name="app_name">Using_tabs</string>
+	<string name="status">Like Something! Share it!</string>
+	<string name="places_list_heading">Where are you ?</string>
+	<string name="defaultComment">Tell your fellows what you enjoyed!!</string>
+    <string name="place">Place:</string>
+    <string name="postOnTimeline">Post on my Facebook Timeline</string>
+    <string name="postButton">Submit</string>
 </resources>
