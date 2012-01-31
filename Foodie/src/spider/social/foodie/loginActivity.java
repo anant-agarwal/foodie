@@ -17,11 +17,12 @@ import com.facebook.android.FacebookError;
 public class loginActivity extends Activity{
 	 static Facebook facebook = new Facebook("281912308536270");
 	 
-  static AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(facebook);
+	 static AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(facebook);
 	
 	 String FILENAME = "AndroidSSO_data";
-	    private SharedPreferences mPrefs;
-	    @Override
+	 private SharedPreferences mPrefs;
+	 
+	 @Override
 	 public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
