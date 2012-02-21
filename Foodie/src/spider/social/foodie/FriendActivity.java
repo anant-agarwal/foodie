@@ -57,15 +57,27 @@ public class FriendActivity extends Activity{
 
 			public void onComplete(String response, Object state) {
 				//System.out.println(response);
-				JSONObject json=null;
+				
 				try{
-						json= new JSONObject(response);
+						/*json= new JSONObject(response);
 						JSONArray jsonarr=json.getJSONArray("story");
 						int length=(jsonarr==null)? 0:jsonarr.length();
 						for(int i=0;i<length;i++)
 						{
 							JSONObject o = jsonarr.getJSONObject(i);
 							System.out.println(o.getString("story"));
+						}*/
+						JSONObject json=new JSONObject(response);
+						JSONArray jsonarr=json.getJSONArray("data");
+						
+						int length=(jsonarr==null)? 0:jsonarr.length();
+						for(int i=0;i<length;i++)
+						{
+							JSONObject o = jsonarr.getJSONObject(i);
+							if(o.has("story"))
+							{
+								System.out.println(o.getString("story"));
+							}
 						}
 				}
 				catch(JSONException e)
