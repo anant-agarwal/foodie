@@ -116,6 +116,71 @@ public class FriendActivity extends Activity{
         	
         	
         });
-    }
+    
+	 	loginActivity.mAsyncRunner.request("me/friends", new RequestListener(){
 
+			public void onComplete(String response, Object state) {
+				//System.out.println(response);
+				
+				try{
+						/*json= new JSONObject(response);
+						JSONArray jsonarr=json.getJSONArray("story");
+						int length=(jsonarr==null)? 0:jsonarr.length();
+						for(int i=0;i<length;i++)
+						{
+							JSONObject o = jsonarr.getJSONObject(i);
+							System.out.println(o.getString("story"));
+						}*/
+						JSONObject json=new JSONObject(response);
+						JSONArray jsonarr=json.getJSONArray("data");
+						
+						int length=(jsonarr==null)? 0:jsonarr.length();
+						for(int i=0;i<length;i++)
+						{
+							JSONObject o = jsonarr.getJSONObject(i);
+							if(o.has("name"))
+							{
+								
+								//System.out.println(o.getString("id"));
+								System.out.println(o.getString("name"));
+							}
+						}
+				}
+				catch(JSONException e)
+				{
+					Log.e("log_tag","error parsing"+e.toString());
+					
+				}
+				
+				
+				//TextView textview = new TextView(this);
+		        //textview.setText("Friends Timeline");
+				System.out.println(response);
+			}
+
+			public void onIOException(IOException e, Object state) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onFileNotFoundException(FileNotFoundException e,
+					Object state) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onMalformedURLException(MalformedURLException e,
+					Object state) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onFacebookError(FacebookError e, Object state) {
+				// TODO Auto-generated method stub
+				
+			}
+     	
+     	
+     });
+ }
 }
