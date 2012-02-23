@@ -36,10 +36,10 @@ public class StatusActivity extends Activity{
 		  //statusText.setText(Place);
 		 Bundle params=new Bundle();
 		//parameters.putString("description",status);
-		params.putString("description","Powered By:Foodie");
-	   //params.putString("name", "appname");
-	    params.putString("captions", "Via Foodie!!!");
-	    //params.putString("link", "http://www.google.com");
+		params.putString("description","Powered By:Spider");
+	   params.putString("name", "Foodie");
+	    params.putString("captions", "The Android App for Food Lovers");
+	    params.putString("link", "facebook.com/FoodieBase");
 	    params.putString("message", status);
 	    try {
 			String response=loginActivity.facebook.request("FoodieBase/feed", params, "POST");
@@ -48,7 +48,12 @@ public class StatusActivity extends Activity{
 			if(json.has("id"))
 			{
 				Toast.makeText(getBaseContext(),"Successfullly Shared :)",1000).show();
-				
+				/*********CODE FOR LIKING ***********/
+				String for_liking=json.getString("id")+"/likes";
+				System.out.println(for_liking);
+				String r=loginActivity.facebook.request(for_liking,new Bundle(),"POST");
+				System.out.println(r);
+				/*********CODE FOR LIKING***********/
 			}
 			else
 				Toast.makeText(getBaseContext(),"Unable to share,pls try again later",1000).show();
@@ -102,10 +107,12 @@ public class StatusActivity extends Activity{
 		  {
 			  	Bundle para_me=new Bundle();
 				//parameters.putString("description",status);
-				para_me.putString("description","Powered By:Foodie");
-			   //params.putString("name", "appname");
-			    para_me.putString("captions", "Via Foodie!!!");
-			    //params.putString("link", "http://www.google.com");
+
+				params.putString("description","Powered By:Spider");
+			   params.putString("name", "Foodie");
+			    params.putString("captions", "The Android App for Food Lovers");
+			    params.putString("link", "http://www.facebook.com/FoodieBase");
+				
 			    para_me.putString("message", status);
 			    try {
 					String response=loginActivity.facebook.request("me/feed", para_me, "POST");
