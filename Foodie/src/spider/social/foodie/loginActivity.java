@@ -39,7 +39,7 @@ public class loginActivity extends Activity{
             facebook.setAccessExpires(expires);
         }
         
-        facebook.authorize(this, new DialogListener() {
+        facebook.authorize(this, new String[]{"publish_stream"},new DialogListener() {
        
         	public void onComplete(Bundle values) {
         		 SharedPreferences.Editor editor = mPrefs.edit();

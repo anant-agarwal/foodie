@@ -53,7 +53,7 @@ public class FriendActivity extends Activity{
         	}
         	
         });*/
-        loginActivity.mAsyncRunner.request("anantinvent/posts", new RequestListener(){
+        loginActivity.mAsyncRunner.request("FoodieBase/posts", new RequestListener(){
 
 			public void onComplete(String response, Object state) {
 				//System.out.println(response);
@@ -142,7 +142,7 @@ public class FriendActivity extends Activity{
 							{
 								
 								//System.out.println(o.getString("id"));
-								System.out.println(o.getString("name"));
+								//System.out.println(o.getString("name"));
 							}
 						}
 				}
